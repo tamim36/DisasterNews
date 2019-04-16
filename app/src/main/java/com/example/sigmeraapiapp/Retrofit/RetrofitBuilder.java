@@ -12,7 +12,7 @@ public class RetrofitBuilder {
         if (retrofit==null)
         {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://jsonplaceholder.typicode.com/")
+                    .baseUrl("https://api.sigimera.org/v1/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();

@@ -32,9 +32,16 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder postViewHolder, int i) {
-        postViewHolder.txt_title.setText(String.valueOf(postList.get(i).getTitle()));
-        postViewHolder.txt_content.setText(new StringBuilder(postList.get(i).getBody().substring(0,20).toString()));
-        postViewHolder.txt_author.setText(String.valueOf(postList.get(i).getUserId()));
+        postViewHolder.txt_title.setText(String.valueOf(postList.get(i).getDc_title()));
+        postViewHolder.txt_content.setText(new StringBuilder(postList.get(i).getDc_description().substring(0,20).toString()));
+
+        if (postList.get(i).getGn_parentCountry().length != 0)
+            postViewHolder.txt_country.setText(String.valueOf(postList.get(i).getGn_parentCountry()[0]));
+
+        postViewHolder.txt_crisis_level.setText(String.valueOf(postList.get(i).getCrisis_alertLevel()));
+        postViewHolder.txt_population.setText(String.valueOf(postList.get(i).getCrisis_population()));
+        postViewHolder.txt_start_date.setText(String.valueOf(postList.get(i).getSchema_startDate()));
+        postViewHolder.txt_type_disaster.setText(String.valueOf(postList.get(i).getSubject()));
     }
 
     @Override

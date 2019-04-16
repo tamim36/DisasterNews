@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void fetchData() {
-        compositeDisposable.add(iClient.getPostfromWeb()
+        compositeDisposable.add(iClient.getPostfromWeb("YDYkcpwWYdeqNsAckzGs",1, "short", new String[]{"earthquakes", "floods", "cyclones"})
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<List<Post>>() {
